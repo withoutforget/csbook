@@ -1,0 +1,81 @@
+[book]
+title = "Computer Science: полное руководство"
+subtitle = "От транзисторов до распределённых систем"
+author = "Коллективный труд"
+date = "2025"
+lang = "ru"
+
+[book.toc]
+enabled = true
+depth = 3
+
+[book.layout]
+documentclass = "book"
+geometry = "margin=2.5cm"
+fontsize = "11pt"
+numbersections = true
+
+[book.fonts]
+# Used as YAML frontmatter for pandoc/XeLaTeX. The names must match the
+# OpenType family names that fontconfig sees (run `fc-list :family` to verify).
+main = "PT Serif"
+mono = "JetBrains Mono"
+math = "STIX Two Math"
+
+[book.links]
+colored = true
+linkcolor = "blue"
+urlcolor = "blue"
+
+# Extra YAML metadata fields passed straight into pandoc frontmatter.
+# Add custom keys here, e.g.: papersize = "a4".
+[book.extra]
+
+[build]
+source_dir = "."
+output_dir = "dist"
+article_glob = "**/article.md"
+formats = ["pdf", "html"]
+page_break = "\\newpage"
+
+[build.pdf]
+# Engines tried in order; first one available is used.
+engines = ["xelatex", "lualatex", "pdflatex"]
+
+[check]
+article_filename = "article.md"
+ignore_dirs = [".git", ".claude", "dist", "scripts", ".venv", "__pycache__", ".idea", ".vscode"]
+
+# ── Font auto-install ────────────────────────────────────────────────────────
+# scripts/install_fonts.py downloads these to a per-user fonts directory
+# (no sudo required) and runs fc-cache. scripts/build.py invokes this
+# automatically before building, unless --no-install-fonts is passed.
+
+[fonts]
+# Leave empty to use the OS default per-user fonts dir
+# (Linux: ~/.local/share/fonts/basebook/, macOS: ~/Library/Fonts/basebook/).
+install_dir = ""
+
+[[fonts.packages]]
+name = "PT Serif"
+files = [
+    "https://github.com/google/fonts/raw/main/ofl/ptserif/PT_Serif-Web-Regular.ttf",
+    "https://github.com/google/fonts/raw/main/ofl/ptserif/PT_Serif-Web-Bold.ttf",
+    "https://github.com/google/fonts/raw/main/ofl/ptserif/PT_Serif-Web-Italic.ttf",
+    "https://github.com/google/fonts/raw/main/ofl/ptserif/PT_Serif-Web-BoldItalic.ttf",
+]
+
+[[fonts.packages]]
+name = "JetBrains Mono"
+files = [
+    "https://github.com/JetBrains/JetBrainsMono/raw/master/fonts/ttf/JetBrainsMono-Regular.ttf",
+    "https://github.com/JetBrains/JetBrainsMono/raw/master/fonts/ttf/JetBrainsMono-Bold.ttf",
+    "https://github.com/JetBrains/JetBrainsMono/raw/master/fonts/ttf/JetBrainsMono-Italic.ttf",
+    "https://github.com/JetBrains/JetBrainsMono/raw/master/fonts/ttf/JetBrainsMono-BoldItalic.ttf",
+]
+
+[[fonts.packages]]
+name = "STIX Two Math"
+files = [
+    "https://github.com/stipub/stixfonts/raw/master/archive/STIXv2.0.2/OTF/STIX2Math.otf",
+]

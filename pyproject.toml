@@ -1,0 +1,13 @@
+[project]
+name = "basebook"
+version = "0.1.0"
+description = "Build the basebook computer-science compendium (Markdown -> PDF/HTML)."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "click>=8.1",
+    "rich>=13.7",
+]
+
+[tool.uv]
+package = false
