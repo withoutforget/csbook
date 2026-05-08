@@ -91,6 +91,13 @@ class BookConfig:
                 lines.append(f"{key}: {'true' if value else 'false'}")
             elif isinstance(value, (int, float)):
                 lines.append(f"{key}: {value}")
+            elif isinstance(value, list):
+                if not value:
+                    return
+                lines.append(f"{key}:")
+                for item in value:
+                    lines.append("  - |")
+                    lines.append(f"    {item}")
             else:
                 lines.append(f'{key}: "{value}"')
 
@@ -281,6 +288,9 @@ def _build_pdf(
             "-V",
             "header-includes=\\usepackage[utf8]{inputenc}\\usepackage[russian,english]{babel}",
         ]
+    preamble = Path(__file__).parent / "xelatex-preamble.tex"
+    if preamble.exists() and engine in ("xelatex", "lualatex"):
+        args += ["--include-in-header", str(preamble)]
     if _run_pandoc(args, f"PDF via {engine}"):
         log.info("[bold green]PDF[/bold green]: %s", output_pdf)
         return True
@@ -292,6 +302,7 @@ def _build_html(book: BookConfig, source_md: Path, output_html: Path) -> bool:
         "pandoc",
         str(source_md),
         "--standalone",
+        "--mathjax",
         "--toc",
         f"--toc-depth={book.toc_depth}",
         "-N",

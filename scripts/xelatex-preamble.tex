@@ -1,0 +1,58 @@
+% Font fallback for XeLaTeX.  Wrapped in \ifXeTeX so LuaLaTeX and pdfLaTeX
+% builds are unaffected.
+%
+% Two fallback fonts are declared:
+%   FreeSerif      — covers Greek, arrows, math operators, superscripts,
+%                    phonetic extensions.  Missing from PT Serif.
+%                    FreeSerif has full Latin coverage so no \setTransitionFrom
+%                    is needed: Latin after Greek stays legible in FreeSerif.
+%   Droid Sans Fallback — covers Hiragana, CJK Unified Ideographs.
+%                    Has NO Latin glyphs, so \setTransitionFrom must restore
+%                    \rmfamily when returning to non-CJK text.
+%
+% Note: ucharclasses does NOT affect verbatim/code environments; JetBrains
+% Mono warnings from code blocks cannot be fixed this way.
+\ifXeTeX
+  \newfontfamily\freeserifffallback{FreeSerif}[Scale=MatchLowercase]
+  \newfontfamily\cjkfallback{Droid Sans Fallback}[Scale=MatchLowercase]
+  \usepackage[%
+    GreekAndCoptic,%
+    GreekExtended,%
+    Arrows,%
+    SupplementalArrowsA,%
+    SupplementalArrowsB,%
+    MathematicalOperators,%
+    SupplementalMathematicalOperators,%
+    MiscellaneousMathematicalSymbolsA,%
+    MiscellaneousMathematicalSymbolsB,%
+    SuperscriptsAndSubscripts,%
+    PhoneticExtensions,%
+    PhoneticExtensionsSupplement,%
+    Hiragana,%
+    Katakana,%
+    KatakanaPhoneticExtensions,%
+    CJKUnifiedIdeographs%
+  ]{ucharclasses}
+  % Latin/Greek/math/phonetics → FreeSerif (FreeSerif has Latin so no FROM needed)
+  \setTransitionTo{GreekAndCoptic}{\freeserifffallback}
+  \setTransitionTo{GreekExtended}{\freeserifffallback}
+  \setTransitionTo{Arrows}{\freeserifffallback}
+  \setTransitionTo{SupplementalArrowsA}{\freeserifffallback}
+  \setTransitionTo{SupplementalArrowsB}{\freeserifffallback}
+  \setTransitionTo{MathematicalOperators}{\freeserifffallback}
+  \setTransitionTo{SupplementalMathematicalOperators}{\freeserifffallback}
+  \setTransitionTo{MiscellaneousMathematicalSymbolsA}{\freeserifffallback}
+  \setTransitionTo{MiscellaneousMathematicalSymbolsB}{\freeserifffallback}
+  \setTransitionTo{SuperscriptsAndSubscripts}{\freeserifffallback}
+  \setTransitionTo{PhoneticExtensions}{\freeserifffallback}
+  \setTransitionTo{PhoneticExtensionsSupplement}{\freeserifffallback}
+  % Japanese / CJK ↔ Droid Sans Fallback (restore \rmfamily on exit — no Latin in font)
+  \setTransitionTo{Hiragana}{\cjkfallback}
+  \setTransitionFrom{Hiragana}{\rmfamily}
+  \setTransitionTo{Katakana}{\cjkfallback}
+  \setTransitionFrom{Katakana}{\rmfamily}
+  \setTransitionTo{KatakanaPhoneticExtensions}{\cjkfallback}
+  \setTransitionFrom{KatakanaPhoneticExtensions}{\rmfamily}
+  \setTransitionTo{CJKUnifiedIdeographs}{\cjkfallback}
+  \setTransitionFrom{CJKUnifiedIdeographs}{\rmfamily}
+\fi
