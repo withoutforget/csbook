@@ -393,7 +393,7 @@ Raft и Paxos предполагают **crash fault tolerance**: узел ли�
 
 **Byzantine fault** (Задача о Византийских генералах, Лэмпорт, 1982): узел может работать некорректно и отправлять *противоречивые* сообщения разным узлам (сбой оборудования, взлом, баг).
 
-**PBFT** (Practical Byzantine Fault Tolerance, 1999): достигает консенсуса при n≥3f+1 узлах, где f — число Byzantine-узлов. Требует n≥4 для f=1.
+**PBFT** (Practical Byzantine Fault Tolerance, 1999): достигает консенсуса при $n \geq 3f+1$ узлах, где f — число Byzantine-узлов. Требует $n \geq 4$ для f=1.
 
 **Blockchain консенсус**: Bitcoin использует Proof-of-Work (не BFT в строгом смысле), Ethereum перешёл на Proof-of-Stake. Оба предполагают Byzantine fault tolerance в открытой сети с неизвестными участниками.
 

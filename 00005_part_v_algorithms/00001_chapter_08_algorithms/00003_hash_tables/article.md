@@ -300,7 +300,7 @@ class RobinHoodHashTable:
 
 ## Load Factor и Rehashing
 
-**Load factor** α = n/m, где n — количество элементов, m — размер таблицы.
+**Load factor** $\alpha = n/m$, где n — количество элементов, m — размер таблицы.
 
 ### Влияние load factor
 

@@ -158,7 +158,7 @@ scrypt разработан Колином Персивалом (Colin Percival)
 - `N` — CPU/memory cost (power of 2, обычно 2^14 = 16384 или 2^15)
 - `r` — block size (обычно 8)
 - `p` — parallelization factor (обычно 1)
-- Требуемая память = 128 × N × r байт
+- Требуемая память = $128 \times N \times r$ байт
 
 При N=2^15, r=8: ~32 МБ памяти на одно вычисление.
 
@@ -212,7 +212,7 @@ Argon2 победил в Password Hashing Competition (PHC) в 2015 году. Р
 - `t` — time_cost (число итераций)
 - `m` — memory_cost (в кибибайтах, например 65536 = 64 МБ)
 - `p` — parallelism (число потоков)
-- Рекомендация OWASP: memory ≥ 19 МБ, time ≥ 2, parallelism ≥ 1
+- Рекомендация OWASP: memory $\geq 19$ МБ, time $\geq 2$, parallelism $\geq 1$
 
 ```python
 # pip install argon2-cffi

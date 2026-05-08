@@ -494,8 +494,8 @@ Followers → Leader: Acked
 Leader: commit
 Leader → Client: success
 
-Задержка = 2 × RTT (leader ↔ followers)
-Для inter-DC: 2 × 10ms = 20ms минимум
+Задержка $= 2 \times \text{RTT}$ (leader $\leftrightarrow$ followers)
+Для inter-DC: $2 \times 10\text{ms} = 20\text{ms}$ минимум
 
 Оптимизации:
 1. Pipeline: не ждать ack перед следующей записью

@@ -90,7 +90,7 @@ y = γx̂ + β    (γ, β — обучаемые параметры)
 
 ### Мотивация: почему не MLP для изображений
 
-Изображение 1000×1000×3 RGB = 3 миллиона входных нейронов. Полносвязный слой → 1000 нейронов потребует 3 × 10⁹ параметров только в первом слое. Это:
+Изображение $1000 \times 1000 \times 3$ RGB = 3 миллиона входных нейронов. Полносвязный слой → 1000 нейронов потребует $3 \times 10^9$ параметров только в первом слое. Это:
 1. Слишком много параметров (переобучение)
 2. Не использует пространственную структуру изображений
 
@@ -157,7 +157,7 @@ class SimpleCNN(nn.Module):
 
 **AlexNet (2012)**: 8 слоёв, побил ILSVRC-2012 с большим отрывом.
 
-**VGG (2014)**: идея использовать только 3×3 фильтры:
+**VGG (2014)**: идея использовать только $3 \times 3$ фильтры:
 ```python
 # VGG16 block: серия 3×3 conv → MaxPool
 VGG_blocks = [
@@ -500,10 +500,10 @@ class VisionTransformer(nn.Module):
 
 | Архитектура | Входные данные | Параметры | Применение |
 |---|---|---|---|
-| MLP | Табличные данные | O(n²) на слой | Регрессия, классификация |
-| CNN | Изображения, аудио | O(k²×c) на слой | CV, распознавание речи |
-| RNN/LSTM | Последовательности | O(h²) на слой | NLP (устарел), временные ряды |
-| Transformer | Последовательности, изображения | O(n²×d) | NLP, CV, мультимодальные задачи |
+| MLP | Табличные данные | $O(n^2)$ на слой | Регрессия, классификация |
+| CNN | Изображения, аудио | $O(k^2 \times c)$ на слой | CV, распознавание речи |
+| RNN/LSTM | Последовательности | $O(h^2)$ на слой | NLP (устарел), временные ряды |
+| Transformer | Последовательности, изображения | $O(n^2 \times d)$ | NLP, CV, мультимодальные задачи |
 
 ## Итог
 
@@ -529,7 +529,7 @@ class VisionTransformer(nn.Module):
 
 6. Radford, A., et al. (2019). *Language Models are Unsupervised Multitask Learners* (GPT-2). OpenAI Blog.
 
-7. Dosovitskiy, A., et al. (2021). *An Image is Worth 16×16 Words: Transformers for Image Recognition at Scale* (ViT). ICLR 2021. https://arxiv.org/abs/2010.11929
+7. Dosovitskiy, A., et al. (2021). *An Image is Worth $16 \times 16$ Words: Transformers for Image Recognition at Scale* (ViT). ICLR 2021. https://arxiv.org/abs/2010.11929
 
 8. Krizhevsky, A., Sutskever, I., Hinton, G. (2012). *ImageNet Classification with Deep Convolutional Neural Networks* (AlexNet). NeurIPS 2012.
 

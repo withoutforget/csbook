@@ -78,19 +78,19 @@ CREATE TABLE employees (
 
 ### 2.1 Основные операции
 
-**Select (σ)** — фильтрация строк:
+**Select ($\sigma$)** — фильтрация строк:
 ```sql
 -- σ(salary > 50000)(employees)
 SELECT * FROM employees WHERE salary > 50000;
 ```
 
-**Project (π)** — выборка столбцов:
+**Project ($\pi$)** — выборка столбцов:
 ```sql
 -- π(name, salary)(employees)
 SELECT name, salary FROM employees;
 ```
 
-**Union (∪)** — объединение двух отношений:
+**Union ($\cup$)** — объединение двух отношений:
 ```sql
 SELECT id, name FROM employees
 UNION
@@ -105,14 +105,14 @@ EXCEPT
 SELECT DISTINCT manager_id FROM employees WHERE manager_id IS NOT NULL;
 ```
 
-**Intersection (∩)** — пересечение:
+**Intersection ($\cap$)** — пересечение:
 ```sql
 SELECT id FROM full_time_employees
 INTERSECT
 SELECT id FROM remote_employees;
 ```
 
-**Cartesian Product (×)** — декартово произведение:
+**Cartesian Product ($\times$)** — декартово произведение:
 ```sql
 -- Все пары (сотрудник, отдел)
 SELECT e.name, d.name FROM employees e CROSS JOIN departments d;
@@ -130,7 +130,7 @@ JOIN departments d ON e.department_id = d.id;
 
 ## 3. Функциональные зависимости
 
-**Функциональная зависимость** A → B: значение атрибута(ов) A однозначно определяет значение атрибута(ов) B.
+**Функциональная зависимость** $A \to B$: значение атрибута(ов) A однозначно определяет значение атрибута(ов) B.
 
 ```
 employees: (id, name, department_id, salary)
@@ -141,9 +141,9 @@ department_id → department_name  (если есть такой атрибут 
 {first_name, last_name} → employee_id  (составной ключ)
 ```
 
-**Тривиальная** FD: A → B, где B ⊆ A (y, x → x — тривиально).
+**Тривиальная** FD: $A \to B$, где $B \subseteq A$ ($y, x \to x$ — тривиально).
 
-**Транзитивная** FD: A → B и B → C → A → C (транзитивная).
+**Транзитивная** FD: $A \to B$ и $B \to C$ $\Rightarrow$ $A \to C$ (транзитивная).
 
 ---
 
@@ -266,7 +266,7 @@ CREATE TABLE employees (
 
 ### 4.5 BCNF (Нормальная форма Бойса-Кодда)
 
-**Требование**: более строгая версия 3NF. Каждая нетривиальная FD X → Y: X должен быть суперключом.
+**Требование**: более строгая версия 3NF. Каждая нетривиальная FD $X \to Y$: X должен быть суперключом.
 
 BCNF важна при наличии нескольких потенциальных ключей, которые пересекаются:
 
@@ -298,7 +298,7 @@ CREATE TABLE student_teachers (
 
 ### 4.6 4NF и 5NF
 
-**4NF**: нет многозначных зависимостей (A →→ B значит для каждого A есть независимое множество B-значений).
+**4NF**: нет многозначных зависимостей ($A \twoheadrightarrow B$ значит для каждого A есть независимое множество B-значений).
 
 **5NF (Project-Join NF)**: нет join зависимостей (таблицу нельзя разложить на более мелкие без потери информации).
 

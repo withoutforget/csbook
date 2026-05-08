@@ -435,7 +435,7 @@ print(f"Bits: {session_info['cipher'][2]}")
 | CRIME | TLS 1.0-1.2 | Compression oracle | Отключить сжатие |
 | HEARTBLEED | OpenSSL 1.0.1 | Buffer over-read | Обновить OpenSSL |
 | FREAK | TLS 1.0-1.2 | Export-grade ключи | Убрать export cipher suites |
-| LOGJAM | TLS 1.0-1.2 | Слабые DH параметры | DH ≥ 2048 бит, ECDHE |
+| LOGJAM | TLS 1.0-1.2 | Слабые DH параметры | DH $\geq$ 2048 бит, ECDHE |
 | MITM | Все | Поддельный сертификат | Certificate Transparency, CAA |
 
 ### 7.1 Certificate Transparency

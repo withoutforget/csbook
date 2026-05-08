@@ -368,11 +368,11 @@ def measure_tcp_latency(host: str, port: int, count: int = 100) -> dict:
 
 ## Latency и закон Little's
 
-**Закон Литтла (Little's Law):** N = λ × W
+**Закон Литтла (Little's Law):** $N = \lambda \times W$
 
 Где:
 - N = среднее количество задач в системе (очередь + обрабатываемые)
-- λ = throughput (задач в секунду)
+- $\lambda$ = throughput (задач в секунду)
 - W = среднее время в системе (latency)
 
 ```python
@@ -460,8 +460,8 @@ class UserProfileCache:
 ### 2. Размещай сервисы близко друг к другу
 
 Если сервис A вызывает сервис B 100 раз на один пользовательский запрос:
-- В одном датацентре: 100 × 0.5мс = 50мс overhead
-- В разных датацентрах: 100 × 150мс = 15 секунд! Запрос упадёт по timeout.
+- В одном датацентре: $100 \times 0.5$ мс = 50мс overhead
+- В разных датацентрах: $100 \times 150$ мс = 15 секунд! Запрос упадёт по timeout.
 
 **Вывод:** Сервисы с высокочастотным взаимодействием должны быть в одной AZ.
 
@@ -504,9 +504,9 @@ print(f"Ожидаемая latency: ~{latency}ms")  # ~7.1ms
 
 ### 4. Думай о хвостовой latency
 
-**Fan-out amplification:** если страница делает 10 параллельных запросов, итоговая latency = max(all 10 requests), не average. Если p99 каждого запроса = 50ms, то страница с 10 параллельными запросами имеет p99 ≈ 50ms (max из 10 независимых p99).
+**Fan-out amplification:** если страница делает 10 параллельных запросов, итоговая latency = max(all 10 requests), не average. Если p99 каждого запроса = 50ms, то страница с 10 параллельными запросами имеет p99 $\approx$ 50ms (max из 10 независимых p99).
 
-Но при зависимых (последовательных) запросах: итоговый p99 ≈ sum(individual p99).
+Но при зависимых (последовательных) запросах: итоговый p99 $\approx$ sum(individual p99).
 
 ## Заключение
 
@@ -526,7 +526,7 @@ print(f"Ожидаемая latency: ~{latency}ms")  # ~7.1ms
 3. **Gregg, Brendan** — «Systems Performance: Enterprise and the Cloud», 2nd ed. Pearson, 2020. ISBN: 978-0136820154
 4. **Gregg, Brendan** — «Latency Numbers Every Programmer Should Know» (интерактивная): https://colin-scott.github.io/personal_website/research/interactive_latency.html
 5. **Kleppmann, Martin** — «Designing Data-Intensive Applications». O'Reilly Media, 2017. ISBN: 978-1449373320
-6. **Little, John D.C.** — «A Proof for the Queuing Formula: L = λW». Operations Research, 1961
+6. **Little, John D.C.** — «A Proof for the Queuing Formula: $L = \lambda W$». Operations Research, 1961
 7. **Gunther, Neil J.** — «Guerrilla Capacity Planning». Springer, 2007. ISBN: 978-3540261384
 8. **NVMe Express Specification** — https://nvmexpress.org/specifications/
 9. **Intel** — «Optane Persistent Memory Technical Brief»: https://www.intel.com/content/www/us/en/products/docs/memory-storage/optane-persistent-memory/

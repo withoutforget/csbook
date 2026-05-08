@@ -132,7 +132,7 @@ for row_outer in outer_table:      # departments
             yield row_outer + row_inner
 ```
 
-**Сложность**: O(N × M) в худшем случае. Но если inner имеет индекс → O(N × log M).
+**Сложность**: $O(N \times M)$ в худшем случае. Но если inner имеет индекс → $O(N \times \log M)$.
 
 **Когда хорошо**:
 - Outer table маленькая

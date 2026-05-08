@@ -1037,13 +1037,13 @@ by bin(1h)
 Serverless и FaaS трансформируют разработку бэкенда:
 
 1. **Serverless** = без управления серверами; провайдер занимается инфраструктурой
-2. **FaaS** = функция запускается по событию; масштабирование от 0 до ∞
+2. **FaaS** = функция запускается по событию; масштабирование от 0 до $\infty$
 3. **Cold/Warm start** = первый запуск медленнее; оптимизация через Provisioned Concurrency
 4. **Stateless** = нет состояния между вызовами; используйте DynamoDB/Redis/S3
 5. **Event-driven** = S3, SQS, API Gateway, Kinesis, Schedule — богатая экосистема триггеров
 6. **Billing per use** = платите только за реальные вызовы и миллисекунды CPU
 7. **Инструменты** = Serverless Framework, SAM, CDK — IaC для serverless
-8. **Edge Computing** = Cloudflare Workers (V8 Isolates) ≈ 0 мс cold start на ближайшем PoP
+8. **Edge Computing** = Cloudflare Workers (V8 Isolates) $\approx$ 0 мс cold start на ближайшем PoP
 9. **Ограничения** = 15 минут timeout, stateless; не подходит для long-running задач
 
 ## Литература

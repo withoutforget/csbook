@@ -21,11 +21,11 @@ TCP connect → HTTP Request → HTTP Response → TCP close
 ```
 
 Для страницы с 30 ресурсами (HTML + 20 картинок + 9 JS/CSS файлов):
-- 30 × TCP handshake (3 × RTT каждый)
-- 30 × HTTP request-response
-- 30 × TCP teardown
+- $30 \times$ TCP handshake ($3 \times$ RTT каждый)
+- $30 \times$ HTTP request-response
+- $30 \times$ TCP teardown
 
-Даже при RTT = 50 мс: 30 × 3 × 50 мс = 4.5 секунды только на handshakes!
+Даже при RTT = 50 мс: $30 \times 3 \times 50$ мс = 4.5 секунды только на handshakes!
 
 ### 1.2 HTTP/1.1: keep-alive и pipelining
 
@@ -141,7 +141,7 @@ Stream 7: [Request 4] [Response 4]
 
 ### 2.2 Header Compression (HPACK)
 
-HTTP/1.1: заголовки — текст, повторяются в каждом запросе. Для 30 запросов: `Cookie: <большой>` × 30 = много лишних данных.
+HTTP/1.1: заголовки — текст, повторяются в каждом запросе. Для 30 запросов: `Cookie: <большой>` $\times$ 30 = много лишних данных.
 
 HTTP/2 HPACK (RFC 7541): таблица часто используемых заголовков + delta compression:
 

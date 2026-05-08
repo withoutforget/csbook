@@ -848,7 +848,7 @@ def check_consumer_lag(admin_client, group_id: str, topic: str) -> dict:
 
 - **Число партиций** должно быть >= числу consumer'ов в group. Иначе часть consumer'ов простаивает.
 - **Репликация**: replication.factor=3 для production. Не менее 2 in-sync replicas (min.insync.replicas=2).
-- **Retention**: планируйте хранилище. 7 дней × throughput = дисковое пространство.
+- **Retention**: планируйте хранилище. $7\text{ дней} \times \text{throughput} = \text{дисковое пространство}$.
 
 ## Практические рекомендации
 

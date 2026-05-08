@@ -485,7 +485,7 @@ GMAC — это AES-GCM без шифрования (только аутенти
 | HMAC-SHA256 | SHA-256     | Высокая   | JWT, TOTP, API подписи        |
 | HMAC-SHA512 | SHA-512     | Высокая   | Высокая безопасность          |
 | AES-CMAC  | AES           | Высокая   | IoT, карты, hardware          |
-| Poly1305  | GF(2¹³⁰-5)  | Очень высокая | ChaCha20-Poly1305           |
+| Poly1305  | $\mathrm{GF}(2^{130}-5)$ | Очень высокая | ChaCha20-Poly1305           |
 | GMAC      | AES-GCM      | Высокая   | Network packets               |
 
 ---

@@ -505,7 +505,7 @@ print("Sources:", [doc.metadata["source"] for doc in result["source_documents"]]
 
 ANN и векторные БД — инфраструктура семантического поиска эпохи LLM:
 
-1. **Точный KNN** — O(N×d), неэффективен при N > 100K
+1. **Точный KNN** — $O(N \times d)$, неэффективен при N > 100K
 2. **HNSW** — лучший recall/latency на практике; граф с иерархией уровней
 3. **FAISS** — библиотека Meta с GPU-ускорением; IVF, PQ для миллиардов векторов
 4. **Product Quantization** — сжатие в 100-400 раз с ~5% потери recall

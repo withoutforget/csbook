@@ -4,7 +4,7 @@
 
 ## Функция потерь как ландшафт
 
-Представьте функцию потерь J(θ) как горный ландшафт, где оси — это параметры модели θ, а высота — значение потерь. Наша цель — найти долину (глобальный или хороший локальный минимум).
+Представьте функцию потерь $J(\theta)$ как горный ландшафт, где оси — это параметры модели $\theta$, а высота — значение потерь. Наша цель — найти долину (глобальный или хороший локальный минимум).
 
 Для двух параметров это буквально трёхмерная поверхность. Для миллиарда параметров — миллиардномерное пространство, визуализировать которое невозможно, но математика остаётся той же.
 
@@ -36,7 +36,7 @@ ax1.set_xlabel('θ₀'), ax1.set_ylabel('θ₁'), ax1.set_zlabel('J(θ)')
 
 ## Градиент: направление наибольшего роста
 
-Градиент функции потерь ∇J(θ) — это вектор частных производных по каждому параметру:
+Градиент функции потерь $\nabla J(\theta)$ — это вектор частных производных по каждому параметру:
 
 ```
 ∇J(θ) = [∂J/∂θ₀, ∂J/∂θ₁, ..., ∂J/∂θₙ]
@@ -522,7 +522,7 @@ for epoch in range(100):
         optimizer.step()       # Обновляем параметры
 ```
 
-`loss.backward()` автоматически проходит по computation graph и вычисляет ∂L/∂θ для каждого параметра. PyTorch хранит граф в памяти во время forward pass, чтобы использовать его в backward.
+`loss.backward()` автоматически проходит по computation graph и вычисляет $\partial L/\partial \theta$ для каждого параметра. PyTorch хранит граф в памяти во время forward pass, чтобы использовать его в backward.
 
 ## Итог
 
@@ -549,7 +549,7 @@ for epoch in range(100):
 
 6. Bengio, Y., Simard, P., Frasconi, P. (1994). *Learning Long-Term Dependencies with Gradient Descent is Difficult*. IEEE Transactions on Neural Networks.
 
-7. Nesterov, Y. (1983). *A method of solving a convex programming problem with convergence rate O(1/k²)*. Soviet Mathematics Doklady.
+7. Nesterov, Y. (1983). *A method of solving a convex programming problem with convergence rate $O(1/k^2)$*. Soviet Mathematics Doklady.
 
 8. PyTorch. *Autograd Mechanics*. https://pytorch.org/docs/stable/notes/autograd.html
 

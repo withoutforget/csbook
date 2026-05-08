@@ -1069,7 +1069,7 @@ log.error("auth.failed", user_id=user.id,
 ### Стоимость наблюдаемости
 
 Инструментация не бесплатна:
-- Каждый span: ~1-5μs overhead
+- Каждый span: ~1--5 $\mu$s overhead
 - JSON-логи: в 3-5 раз больше байт, чем plain text
 - Metrics scrape: ~1-10ms на инстанс при 15s интервале
 

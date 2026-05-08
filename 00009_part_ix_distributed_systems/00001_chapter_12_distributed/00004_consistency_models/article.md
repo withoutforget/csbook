@@ -540,7 +540,7 @@ collection_fast = db.get_collection(
 Инструменты: Cassandra, DynamoDB, Redis с async replication.
 
 **Ловушки:**
-1. **Не путайте уровни изоляции транзакций с моделями согласованности** — это два ортогональных измерения. Serializable isolation ≠ linearizability.
+1. **Не путайте уровни изоляции транзакций с моделями согласованности** — это два ортогональных измерения. Serializable isolation $\neq$ linearizability.
 2. **Read-your-writes не гарантирует read-your-writes для другого клиента** — это per-session гарантия.
 3. **Eventual consistency без дополнительных гарантий опасна** — добавляйте monotonic reads и read-your-writes как минимум.
 4. **Не все CRDTs безопасны** — логика разрешения конфликтов должна быть семантически корректной для вашего приложения.
